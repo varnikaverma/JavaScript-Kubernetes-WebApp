@@ -27,11 +27,11 @@ elif x == 'display':
     o=subprocess.getoutput("kubectl get {} --kubeconfig admin.conf".format(y))
 
 elif x == 'delete':
-    o=subprocess.getoutput("kubectl delete deployment vvweb --kubeconfig admin.conf")
-    #if y == 'deployment' or y == 'pod':
-        #o=subprocess.getoutput("kubectl delete {y} {z} --kubeconfig admin.conf".format(y,z))
-    #else:
-        #o=subprocess.getoutput("kubectl delete all --all --kubeconfig admin.conf")
+    #o=subprocess.getoutput("kubectl delete deployment vvweb --kubeconfig admin.conf")
+    if y == 'deployment' or y == 'pod':
+        o=subprocess.getoutput("kubectl delete {y} {z} --kubeconfig admin.conf".format(y,z))
+    else:
+        o=subprocess.getoutput("kubectl delete all --all --kubeconfig admin.conf")
 
 else:
     c = "{} --kubeconfig admin.conf".format(x)
